@@ -1,15 +1,15 @@
 import Image from "next/image"
-export async function generateStaticParams(){
-    const data = await fetch(
-        `https://api.themoviedb.org/3/movie/${params.params.id}?api_key=8c1cb32789967e8af995cab029ae128a`,
-        {next:{revalidate:0} }        
-    )
-     const res = await data.json();
+// export async function generateStaticParams(){
+//     const data = await fetch(
+//         `https://api.themoviedb.org/3/movie/${params.params.id}?api_key=8c1cb32789967e8af995cab029ae128a`,
+//         {next:{revalidate:0} }        
+//     )
+//      const res = await data.json();
 
-     return res.results.map((movie)=> ({
-        movie:toString(movie.id),
-     }))
-}
+//      return res.results.map((movie)=> ({
+//         movie:toString(movie.id),
+//      }))
+// }
 //this funtion when pushed to production return a mapped array of movie idsd => It stores all movie Id's and now using below function sevre can render them out.
 //Now every movies are pre-rendered static details and dont need them to fetch each time
 
