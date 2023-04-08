@@ -10,18 +10,13 @@ In next js -> all compnents are rendfered on the server side thats why it takes 
 Now In next.js callback functions and events can only be used in client side components
 -> "use client"  -> this string can make a component act as client component to server 
 
--> we make a component to render as client side when we want to use callback fucntions or onclick action
-OR Sign useState or useEffect
+
 Recommended -> TO fetch data always use server side compoennts as its easier for SSR
 
 In NEXT 12 TO fetch from API_KEy we need to use getstaticprops() not in Next13 => use fetch
 
-Map through each results in form of res.results as objects
-
 To addd fucntionalties like onClick or any fucntions to button related to results, we will need client side components=>
 make a client side separately
-
-In a client component we can use Link component to link to a different location
 
 Whenever you try to fetch data from external site Update next.config.js in order to render the Image data fetched to our app
 Here as images:{
@@ -38,20 +33,6 @@ Here as images:{
       }
     ]
   },
-
-To add a grid look to page
-Add gridTemplateColumns and define css accordingly in tailwind.coinfig.css and call by classname = 'grid-cols-grid_type' 
-Example->
-  theme: {
-    extend: {
-      gridTemplateColumns:{
-        fluid:"repeat(auto-fit,minmax(15rem,1fr))"
-      }
-    },
-  },
-  plugins: [],
-
-For padding and margins OR Styles for all children pages  Add css using ClassName property in Layout.jsx in app directory of project.
 
 NEXT STEP
 Aftere rendering front page we need to send user to each movie;s specific page for the popularity and other features of movie
