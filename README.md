@@ -53,3 +53,62 @@ OR Sign useState or useEffect
 Recommended -> TO fetch data always use server side compoennts as its easier for SSR
 
 In NEXT 12 TO fetch from API_KEy we need to use getstaticprops() not in Next13 => use fetch
+
+Map through each results in form of res.results as objects
+
+To addd fucntionalties like onClick or any fucntions to button related to results, we will need client side components=>
+make a client side separately
+
+In a client component we can use Link component to link to a different location
+
+Whenever you try to fetch data from external site 
+update next.config.js
+Here as images:{
+    domains:[image.tmdb.org],
+}
+ images:{
+    domains: ["image.tmdb.org"],
+    remotePatterns:[
+      {
+        protocol:'https',
+        hostname:"image.tmdb.org",
+        port:'',
+        
+      }
+    ]
+  },
+
+  To add a grid look to page
+ Add gridTemplateColumns and define css accordingly in tailwind.coinfig.css and call by classname = 'grid-cols-fluid' here name = fluid in classname
+
+  theme: {
+    extend: {
+      fontFamily:{
+        montserrat:["var(--font-montserrat)"]
+      },
+      gridTemplateColumns:{
+        fluid:"repeat(auto-fit,minmax(15rem,1fr))"
+      }
+    },
+  },
+  plugins: [],
+
+For padding and margins for overallpages or css for overall add css ClassName to Layout
+
+NEXT STEP
+Aftere rendering front page we need to send user to each movie;s specific page for the popularity and other features of movie
+So, Create a dynamic folder by writing name of folder under []
+Ex - [movie] under there make a page.jsx and define structure for each movie page
+
+Now display all feature  in specific pages and revalidate the fetch api with revalidate: key set to a timer
+
+Now to server the data statically without fetching from api each time
+
+generateStaticParams()
+export async function generateStaticParams(){
+   
+     return res.results.map((movie)=> ({
+        movie:toString(movie.id),
+     }))
+}
+To make the deatils available as a static page rendering

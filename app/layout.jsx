@@ -21,20 +21,13 @@ export default function RootLayout({ children }) {
 
       <head />
       
-      <body className ={`${montserrat.className}`}>
-        <nav>
-          <h1>logo</h1>
-          <ul className='font-montserrat'>
-            <li>
-              <a href = '#'>About</a>
-            </li>
-            <li>
-              <a href = '#'>Home</a>
-            </li>
-          </ul>
-        </nav>
+      <body className ={`${montserrat.className} mx-36 my-20`}>
+        {/* <nav>
+          
+        </nav> */}
         {children}
       </body>
+      
     </html>
   )
 }

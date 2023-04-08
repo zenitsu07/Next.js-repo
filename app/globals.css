@@ -109,3 +109,12 @@ a {
     color-scheme: dark;
   }
 }
+
+/* 
+For tailwind css = 
+margin - ex-mx-10 my-12
+padding px,py
+width full = w-full
+rounded - for rounded figure  
+priority = for important section rendering on page
+*/
