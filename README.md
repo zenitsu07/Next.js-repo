@@ -1,42 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.jsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
+This project involves implementing the API requests anf fetching data from API and rendering the data from TMDB Api to build a Next.js Movie Application which involves using Tailwind.css for CSS part of site and utilising  Postman Platform to check the validation of API requests made through the server.
 
 Here page.jsx is mostly rendered in required components
 Layout => wrap all the pages
@@ -61,8 +23,7 @@ make a client side separately
 
 In a client component we can use Link component to link to a different location
 
-Whenever you try to fetch data from external site 
-update next.config.js
+Whenever you try to fetch data from external site Update next.config.js in order to render the Image data fetched to our app
 Here as images:{
     domains:[image.tmdb.org],
 }
@@ -78,14 +39,11 @@ Here as images:{
     ]
   },
 
-  To add a grid look to page
- Add gridTemplateColumns and define css accordingly in tailwind.coinfig.css and call by classname = 'grid-cols-fluid' here name = fluid in classname
-
+To add a grid look to page
+Add gridTemplateColumns and define css accordingly in tailwind.coinfig.css and call by classname = 'grid-cols-grid_type' 
+Example->
   theme: {
     extend: {
-      fontFamily:{
-        montserrat:["var(--font-montserrat)"]
-      },
       gridTemplateColumns:{
         fluid:"repeat(auto-fit,minmax(15rem,1fr))"
       }
@@ -93,7 +51,7 @@ Here as images:{
   },
   plugins: [],
 
-For padding and margins for overallpages or css for overall add css ClassName to Layout
+For padding and margins OR Styles for all children pages  Add css using ClassName property in Layout.jsx in app directory of project.
 
 NEXT STEP
 Aftere rendering front page we need to send user to each movie;s specific page for the popularity and other features of movie
@@ -102,13 +60,12 @@ Ex - [movie] under there make a page.jsx and define structure for each movie pag
 
 Now display all feature  in specific pages and revalidate the fetch api with revalidate: key set to a timer
 
-Now to server the data statically without fetching from api each time
+Now to serve the data statically without fetching from api every time,We use  generateStaticParams()
 
-generateStaticParams()
 export async function generateStaticParams(){
    
      return res.results.map((movie)=> ({
         movie:toString(movie.id),
      }))
-}
-To make the deatils available as a static page rendering
+} in main page.jsx 
+To make the details available as a static page rendering
